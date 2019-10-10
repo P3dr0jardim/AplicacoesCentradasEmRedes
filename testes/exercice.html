@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+</head>
+
+<body>
+    <ons-page>
+        <ons-toolbar>
+            <div class="center">Home</div>
+        </ons-toolbar>
+
+        <ons-tabbar swipeable position="auto">
+            <ons-tab page="home.html" label="Home" icon="md-home" active-icon="md-home">
+            </ons-tab>
+            <ons-tab page="adicionar.html" label="Adicionar" icon="md-plus" active-icon="md-plus">
+            </ons-tab>
+            <ons-tab page="contactar.html" label="Contactar" icon="md-phone" active-icon="md-phone">
+            </ons-tab>
+        </ons-tabbar>
+    </ons-page>
+
+    <template id="home.html">
+        <ons-page id="Home">
+            <p style="text-align: center;">
+                This is the home page.
+            </p>
+            <ul class="ons-list">
+                <li class="ons-list-item" id="list">
+                </li>
+            </ul>
+            <ons-fab>
+                <ons-icon onclick="fab()" icon="md-plus"></ons-icon>
+            </ons-fab>
+        </ons-page>
+    </template>
+
+    <template id="adicionar.html">
+        <ons-page id="Adicionar">
+            <p style="text-align: center;">
+                This is the adicionar page.
+            </p>
+            <div class="container" style="text-align:center">
+                <p>
+                    <ons-input id="nome" modifier="underbar" placeholder="nome" float></ons-input>
+                </p>
+                <ons-fab>
+                    <ons-button onclick="nome()">Enter</ons-button>
+
+                </ons-fab>
+            </div>
+
+        </ons-page>
+    </template>
+    <template id="contactar.html">
+        <ons-page id="Contactar">
+            <p style="text-align: center;">
+                This is the Contactar page.
+            </p>
+
+        </ons-page>
+    </template>
+    <script>
+        var fab= function(){
+            document.querySelector("ons-tabbar").setActiveTab(1);
+        }
+        var nome = function () {
+
+            var nome = document.getElementById('nome').value;
+
+            if (nome) {
+                ons.notification.toast('Congratulations!');
+                var nomes = document.getElementById('list').value;
+                var nome = document.getElementById("nome");
+                var list = document.getElementById("list");
+                var li = document.createElement("ons-list-item");
+                li.setAttribute(nome.value);
+                li.appendChild(document.createTextNode(nome.value));
+                list.appendChild(li);
+                nome.value = "";
+
+            } else {
+                ons.notification.alert('Incorrect username or password.');
+            }
+            ons.ready(setActiveTab(index, [1]))
+
+
+        };
+    </script>
+</body>
+
+</html>
