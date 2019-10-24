@@ -5,6 +5,12 @@ document.addEventListener('init', function (event) {
   }
 });
 
+document.addEventListener('swiperight', function (event) {
+  if (event.target.matches('#detect-area')) {
+    myNavigator.popPage();
+  }
+});
+
 var customPush2 = function (event) {
   myNavigator.pushPage('item.html', { data: { cardTitle: event.target.textContent } })
 };

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <html>
+
 <head>
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
@@ -17,6 +17,7 @@
       <ons-tabbar position="auto" swipeable>
         <ons-tab icon="ion-card" label="Cards" badge="3" page="cards.html"></ons-tab>
         <ons-tab icon="ion-ios-cog" label="Settings" page="./settings.html"></ons-tab>
+
       </ons-tabbar>
     </ons-page>
   </ons-navigator>
@@ -38,6 +39,7 @@
  
   <template id="item.html">
     <ons-page id="item">
+      
       <h2>Items</h2>
       <ons-toolbar>
         <div class="left">
@@ -56,6 +58,11 @@
          
           <ons-button onclick="app.showFromObject()">Actions</ons-button>
         </p>
+        <ons-gesture-detector>
+            <div id="detect-area" style="text-align:center;background-color: white;width: responsive; height: 40px;">
+              Swipe to Home
+            </div>
+          </ons-gesture-detector>
         <template id="action-sheet.html">
             <ons-action-sheet id="sheet" cancelable title="From template">
               <ons-action-sheet-button icon="md-square-o" onclick="app.hideFromTemplate()">Label</ons-action-sheet-button>
@@ -63,10 +70,12 @@
               <ons-action-sheet-button icon="md-square-o" onclick="app.hideFromTemplate()" modifier="destructive">Label</ons-action-sheet-button>
               <ons-action-sheet-button icon="md-close" onclick="app.hideFromTemplate()">Cancel</ons-action-sheet-button>
             </ons-action-sheet>
+            
           </template>
     </ons-page>
   </template>
 
 <script src="app.js"></script>
+
 </body>
 </html>

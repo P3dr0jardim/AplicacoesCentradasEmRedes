@@ -16,7 +16,7 @@
             atum
           </div>
           <div class="right">
-            <ons-switch id="second" checked></ons-switch>
+            <ons-switch checked id="second"></ons-switch>
           </div>
         </ons-list-item>
       </ons-list>
@@ -24,14 +24,15 @@
 
 
     <script>
-      document.querySelector('ons-switch').addEventListener('change', function () {
-          var id = document.getElementById("first");
-          if (id.checked == false) {
-            document.getElementById('second').setAttribute('disabled');
-          } else {
-            document.getElementById('second').removeAttribute('disabled');
-          }
-      })
+      document.getElementById('first').addEventListener('change',function(e){
+      if(e.value){
+        document.getElementById('second').disabled=false;
+      }else{
+        document.getElementById('second').checked=false;
+        document.getElementById('second').disabled=true;
+      }
+    })
+
     </script>
 
   </ons-page>
