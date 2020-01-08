@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 @extends('layouts.app')
+=======
+
+
+
+@extends("layout")
+>>>>>>> dfdc42e7b32175dfb1ba3215b99bb3d94702abf9
 <style>
     .center {
         display: block;
