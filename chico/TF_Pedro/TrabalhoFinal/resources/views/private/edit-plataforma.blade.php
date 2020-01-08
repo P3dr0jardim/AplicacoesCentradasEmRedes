@@ -1,4 +1,4 @@
-@extends("layout")
+@extends('layouts.app')
 
 @section("content")
     <form method="POST" action="/private-plataformas/{{ $plataforma->id }}">

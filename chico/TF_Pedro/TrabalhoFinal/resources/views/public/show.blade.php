@@ -1,4 +1,4 @@
-@extends("layout")
+@extends('layouts.app')
 <style>
     .center {
         display: block;

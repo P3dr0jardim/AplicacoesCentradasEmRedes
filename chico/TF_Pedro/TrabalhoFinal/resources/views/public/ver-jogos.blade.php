@@ -1,4 +1,4 @@
-@extends("layout")
+@extends('layouts.app')
 @section("content")
     <form method="POST" action="/public/ver-jogos">
         {{csrf_field()}}
@@ -6,6 +6,8 @@
         <input type="text" name="nome" placeholder="title"><br>
         <label for="">pontuacao minima:</label>
         <input type="number" name="pontuacao" placeholder="1...100"><br>
+        <label for="">Plataforma:</label>
+        <input type="text" name="plataforma" placeholder="plataforma"><br>
         <input type="checkbox" name="invert" value=1>invert <br>
         <input type="submit" name="submit" value="search">
     </form>

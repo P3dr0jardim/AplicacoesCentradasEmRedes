@@ -1,94 +1,54 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+    <title>Laravel</title>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Styles -->
 
-            .full-height {
-                height: 100vh;
-            }
+</head>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+<body>
 
-            .position-ref {
-                position: relative;
-            }
+    <ul class="nav justify-content-end">
+        @if (Route::has('login'))
+        <li class="nav-item">
+            @auth
+            <a class="nav-link" href="{{ url('/home') }}">Home</a>
+        </li>
+        <li class="nav-item">
+            @else
+            <a class="nav-link active" href="{{ route('login') }}">Login</a>
+        </li>
+        <li class="nav-item">
+            @if (Route::has('register'))
+            <a class="nav-link" href="{{ route('register') }}">Register</a>
+        </li>
+        @endif
+        @endauth
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+    </ul>
+    @endif
+    <div class="jumbotron">
+        <h1 class="display-4">Projeto Final!</h1>
+        <p class="lead"><b>Trabalho realizado por:</b></p>
+        <h7>Pedro Jardim Nº: 2015118</h7>
+        <p>
+            <h7>Helder Perestrelo Nº: 2015118</h7>
+            <hr class="my-4">
+            <p></p>
+            <a class="btn btn-primary btn-lg" href="/public/ver-jogos" role="button">Ver Carros</a>
+            <a class="btn btn-primary btn-lg" href="/public/ver-plataformas" role="button">Ver Motas</a>
 
-            .content {
-                text-align: center;
-            }
+    </div>
 
-            .title {
-                font-size: 84px;
-            }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+</body>
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Trabalho Final
-                </div>
-
-                <div class="links">
-                    <a href="/public/ver-jogos">ver jogos</a>
-                    <a href="/public/ver-plataformas">ver plataformas</a>
-                </div>
-            </div>
-        </div>
-    </body>
 </html>
